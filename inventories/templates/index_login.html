@@ -1,0 +1,32 @@
+ {% if user.is_authenticated %}
+                      Bienvenidooo {{user.username|capfirst}}
+                      <a href="/cerrar/">Salir</a>
+                      <p> <a href="list">Lista de inventarios</a> </p>
+                      <p> <a href="create">Crear inventario</a> </p>
+
+                    {% else %}
+                    <form class="form-horizontal alinear" method="POST">{% csrf_token %}
+                      <div class="control-group">
+                        <label class="control-label" for="inputEmail">Usuario</label>
+                        <div class="controls">
+                          <input name="username" type="text" id="inputEmail" placeholder="Usuario">
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputPassword">Contraseña</label>
+                        <div class="controls">
+                          <input name="password" type="password" id="inputPassword" placeholder="Contraseña">
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <div class="controls">
+                          <label class="checkbox">
+                          <input type="checkbox">Recordar</label>
+                          <button type="submit" class="btn btn-info">Ingresar</button>
+                          <a href="/registrarse/" class="reg">Registrarse</a>
+                        </div>
+                      </div>
+                    </form>
+                    {% endif %}  
