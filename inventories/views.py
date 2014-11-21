@@ -40,7 +40,7 @@ class List(ListView):
 	template_name='list.html'
 	form_class = InventoryForm
 	#success_url = reverse_lazy('list')
-	paginate_by=5,
+	#paginate_by="5",
 	queryset=Inventory.objects.all()
 	context_object_name="inventories"
 
